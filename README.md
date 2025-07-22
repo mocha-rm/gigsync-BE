@@ -1,7 +1,5 @@
 # 🎵 GigSync
 
-### 바로가기 http://ec2-15-164-98-163.ap-northeast-2.compute.amazonaws.com/
-
 ## 프로젝트 소개
 
 ![](https://velog.velcdn.com/images/jelog_131/post/48f24646-cfeb-4340-87c5-199a9748ff53/image.png)
@@ -37,5 +35,4 @@
 
 ## API 문서
 - Swagger UI를 통한 API 문서 제공
-  - http://ec2-15-164-98-163.ap-northeast-2.compute.amazonaws.com/swagger-ui/index.html
 - #### [GigSync API명세서 Notion 바로가기](https://jhlab0131.notion.site/GigSync-API-20009b13cc2880478affdfbfcef5c6fa)
