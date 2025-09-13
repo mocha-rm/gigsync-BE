@@ -27,24 +27,20 @@ spring:
     hibernate:
       ddl-auto: create
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   cache:
     type: redis
   data:
     redis:
-      host: ${REDIS_HOST}
-      port: 6379
-      password: ${REDIS_PASSWORD}
+      host: ${REDISHOST}
+      port: ${REDISPORT}
+      password: ${REDISPASSWORD}
     mongodb:
-      username: ${MONGO_USER}
-      password: ${MONGO_PASSWORD}
-      host: ${MONGO_HOST}
-      port: 27017
+      uri: ${MONGO_URL}
       database: gigsync-chat
-      authentication-database: ${MONGO_AUTH}
   kafka:
     bootstrap-servers: kafka:9092
     consumer:
