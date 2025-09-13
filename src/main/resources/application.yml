@@ -85,3 +85,5 @@ cors:
   allowed-origins:
     - "http://localhost:5173"
     - "https://gigsync-fe.vercel.app"
+    - "https://gigsync.kr"
+    - "https://www.gigsync.kr"
