@@ -84,3 +84,8 @@ cloud:
       static: ${S3_REGION}
     stack:
       auto: 'false'
+
+cors:
+  allowed-origins:
+    - "http://localhost:5173"
+    - "https://gigsync-fe.vercel.app"
