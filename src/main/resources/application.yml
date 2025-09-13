@@ -1,18 +1,7 @@
 spring:
   application:
     name: gigsync
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: ${SMTP_EMAIL}
-    password: ${SMTP_PASSWORD}
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-    default-encoding: UTF-8
+
   servlet:
     multipart:
       max-request-size: 500MB
@@ -65,6 +54,13 @@ server:
     include-message: always
   tomcat:
     max-http-post-size: 500MB
+
+resend:
+  api-key: ${RESEND_API_KEY}
+
+app:
+  email:
+    sender: ${APP_SENDER_EMAIL}
 
 jwt:
   access-token:
