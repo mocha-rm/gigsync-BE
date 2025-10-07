@@ -1,18 +1,7 @@
 spring:
   application:
     name: gigsync
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: ${SMTP_EMAIL}
-    password: ${SMTP_PASSWORD}
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-    default-encoding: UTF-8
+
   servlet:
     multipart:
       max-request-size: 500MB
@@ -25,7 +14,7 @@ spring:
         format_sql: 'true'
         show_sql: 'true'
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   datasource:
     url: ${DB_URL}
     username: ${DB_USER}
@@ -36,15 +25,11 @@ spring:
   data:
     redis:
       host: ${REDIS_HOST}
-      port: 6379
+      port: ${REDIS_PORT}
       password: ${REDIS_PASSWORD}
     mongodb:
-      username: ${MONGO_USER}
-      password: ${MONGO_PASSWORD}
-      host: ${MONGO_HOST}
-      port: 27017
+      uri: ${MONGO_URL}
       database: gigsync-chat
-      authentication-database: ${MONGO_AUTH}
   kafka:
     bootstrap-servers: kafka:9092
     consumer:
@@ -61,6 +46,13 @@ server:
     include-message: always
   tomcat:
     max-http-post-size: 500MB
+
+resend:
+  api-key: ${RESEND_API_KEY}
+
+app:
+  email:
+    sender: ${APP_SENDER_EMAIL}
 
 jwt:
   access-token:
@@ -80,3 +72,10 @@ cloud:
       static: ${S3_REGION}
     stack:
       auto: 'false'
+
+cors:
+  allowed-origins:
+    - "http://localhost:5173"
+    - "https://gigsync-fe.vercel.app"
+    - "https://gigsync.kr"
+    - "https://www.gigsync.kr"
