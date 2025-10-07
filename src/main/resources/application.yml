@@ -14,7 +14,7 @@ spring:
         format_sql: 'true'
         show_sql: 'true'
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
   datasource:
     url: ${DB_URL}
     username: ${DB_USER}
