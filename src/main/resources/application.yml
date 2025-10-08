@@ -28,10 +28,14 @@ spring:
       port: ${REDIS_PORT}
       password: ${REDIS_PASSWORD}
     mongodb:
-      uri: ${MONGO_URL}
+      username: ${MONGO_USER}
+      password: ${MONGO_PASSWORD}
+      host: ${MONGO_HOST}
+      port: 27017
       database: gigsync-chat
+      authentication-database: ${MONGO_AUTH}
   kafka:
-    bootstrap-servers: kafka:9092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     consumer:
       group-id: chat-group
       auto-offset-reset: earliest
