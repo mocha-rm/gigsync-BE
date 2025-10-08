@@ -6,7 +6,6 @@ import com.jhlab.gigsync.global.security.handler.CustomAccessDeniedHandler;
 import com.jhlab.gigsync.global.security.handler.CustomAuthenticationEntryPoint;
 import com.jhlab.gigsync.global.security.utils.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -34,9 +33,8 @@ public class SecurityConfig {
     private final UserDetailsServiceImpl userDetailsService;
     private final CustomAccessDeniedHandler accessDeniedHandler;
     private final CustomAuthenticationEntryPoint authenticationEntryPoint;
+    private final CorsProperties corsProperties;
 
-    @Value("${cors.allowed-origins}")
-    private List<String> allowedOrigins;
 
     public static final String[] WHITE_LIST = {
             "/",
@@ -87,7 +85,7 @@ public class SecurityConfig {
 
         http.cors(cors -> cors.configurationSource(request -> {
             var config = new org.springframework.web.cors.CorsConfiguration();
-            config.setAllowedOrigins(allowedOrigins);
+            config.setAllowedOrigins(corsProperties.getAllowedOrigins());
             config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
             config.setAllowedHeaders(List.of("*"));
             config.setAllowCredentials(true);
